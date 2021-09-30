@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "oscraft",
+  "version": "1.0.0",
+
+  "name": "Oscraft Client",
+  "description": "My attempt to make a Minecraft hack client.",
+  "authors": [
+    "Oskar Kraak"
+  ],
+  "contact": {
+    "homepage": "https://oskarkraak.com",
+    "sources": "https://github.com/oskarkraak"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/oscraft/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.oskarkraak.oscraftclient.OscraftClient"
+    ]
+  },
+  "mixins": [
+    "oscraft.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
