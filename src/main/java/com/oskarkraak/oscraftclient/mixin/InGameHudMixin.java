@@ -1,6 +1,6 @@
 package com.oskarkraak.oscraftclient.mixin;
 
-import com.oskarkraak.oscraftclient.events.InGameHudRenderListener.InGameHudRenderEvent;
+import com.oskarkraak.oscraftclient.listeners.InGameHudRenderListener.InGameHudRenderEvent;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;

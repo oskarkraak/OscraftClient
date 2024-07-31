@@ -1,21 +1,22 @@
 package com.oskarkraak.oscraftclient.modules;
 
-import com.oskarkraak.oscraftclient.EventManager;
-import com.oskarkraak.oscraftclient.events.TickListener;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.text.Text;
 
-public class GammaOverride extends Module implements TickListener {
+// TODO this is not the right way to do this (right now its fullbright)
+public class GammaOverride extends Module {
 
-    double defaultGamma;
+    private double defaultGamma;
+    private final MinecraftClient minecraftClient;
 
     public GammaOverride(String name, KeyBinding keyBinding) {
         super(name, keyBinding);
-        EventManager.LISTENERS.add(this);
+        minecraftClient = MinecraftClient.getInstance();
     }
 
     @Override
     public void onEnable() {
+        defaultGamma = minecraftClient.options.gamma;
         // Set gamma to 1 -> full vision
         minecraftClient.options.gamma = 1;
     }
@@ -26,10 +27,4 @@ public class GammaOverride extends Module implements TickListener {
         minecraftClient.options.gamma = defaultGamma;
     }
 
-    @Override
-    public void onTick() {
-        // If defaultGamma is 0 it might not have been initialized
-        if (defaultGamma == 0)
-            defaultGamma = minecraftClient.options.gamma;
-    }
 }

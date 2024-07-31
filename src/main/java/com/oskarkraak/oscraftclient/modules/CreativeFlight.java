@@ -1,22 +1,19 @@
 package com.oskarkraak.oscraftclient.modules;
 
 import com.oskarkraak.oscraftclient.EventManager;
-import com.oskarkraak.oscraftclient.listeners.KnockbackListener;
+import com.oskarkraak.oscraftclient.listeners.TickListener;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 
-public class AntiKnockback extends Module implements KnockbackListener {
+public class CreativeFlight extends Module implements TickListener {
 
-    public AntiKnockback(String name, KeyBinding keyBinding) {
+    public CreativeFlight(String name, KeyBinding keyBinding) {
         super(name, keyBinding);
     }
 
     @Override
-    public void onKnockback(KnockbackEvent event) {
-        if (isEnabled()) {
-            event.setX(0);
-            event.setY(0);
-            event.setZ(0);
-        }
+    public void onTick() {
+        MinecraftClient.getInstance().player.getAbilities().allowFlying = true;
     }
 
     @Override
@@ -28,5 +25,4 @@ public class AntiKnockback extends Module implements KnockbackListener {
     public void onDisable() {
         EventManager.LISTENERS.remove(this);
     }
-
 }

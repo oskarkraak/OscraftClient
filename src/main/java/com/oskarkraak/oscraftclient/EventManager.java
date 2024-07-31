@@ -1,9 +1,6 @@
 package com.oskarkraak.oscraftclient;
 
-import com.oskarkraak.oscraftclient.events.Listener;
-import com.oskarkraak.oscraftclient.modules.AntiKnockback;
-import com.oskarkraak.oscraftclient.modules.Module;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
+import com.oskarkraak.oscraftclient.listeners.Listener;
 
 import java.util.ArrayList;
 
